@@ -7,7 +7,6 @@ execution time for wait_n
 
 """
 
-from asyncio import sleep
 import asyncio
 import time
 
