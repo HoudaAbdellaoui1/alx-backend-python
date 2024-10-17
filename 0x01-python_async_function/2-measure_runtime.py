@@ -2,35 +2,30 @@
 """
 Measure runtime Module.
 
-This module provides `wait_n`, that spawn wait_random n times
- with the specified max_delay.
+This module provides `measure_time`, that measures the total
+execution time for wait_n
 
 """
 
 from asyncio import sleep
+import asyncio
+import time
 
 
-async def wait_n(n: int, max_delay: int) -> list:
+def measure_time(n: int, max_delay: int) -> float:
     """
-    Spawns wait_random n times with the specified max_delay.
+    Measures the total execution time for wait_n.
 
     Args:
         n (int): Number of times to spawn wait_random.
         max_delay (int): The maximum delay for each wait_random call.
 
     Returns:
-        list: A list of the delays in ascending order.
+        float: total execution time.
     """
-    delays = []
-    wait_random = __import__('0-basic_async_syntax').wait_random
-    for _ in range(n):
-        delay = await wait_random(max_delay)
-        inserted = False
-        for i in range(len(delays)):
-            if delay < delays[i]:
-                delays.insert(i, delay)
-                inserted = True
-                break
-        if not inserted:
-            delays.append(delay)
-    return delays
+    wait_n = __import__('1-concurrent_coroutines').wait_n
+    s = time.perf_counter()
+    asyncio.run(wait_n(n, max_delay))
+    elapsed = time.perf_counter() - s
+
+    return elapsed
