@@ -2,7 +2,7 @@
 """
 Asynchronous Random Delay Module.
 
-This module provides `wait_n`, that spawn wait_random n times
+This module provides `task_wait_n`, that spawn task_wait_random n times
  with the specified max_delay.
 
 """
@@ -13,7 +13,7 @@ from typing import List
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawns wait_random n times with the specified max_delay.
+    Spawns task_wait_random n times with the specified max_delay.
 
     Args:
         n (int): Number of times to spawn wait_random.
