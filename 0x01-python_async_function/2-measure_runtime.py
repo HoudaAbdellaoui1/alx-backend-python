@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Asynchronous Random Delay Module.
+Measure runtime Module.
 
 This module provides `wait_n`, that spawn wait_random n times
  with the specified max_delay.
@@ -8,7 +8,6 @@ This module provides `wait_n`, that spawn wait_random n times
 """
 
 from asyncio import sleep
-from typing import List
 
 
 async def wait_n(n: int, max_delay: int) -> list:
@@ -20,15 +19,13 @@ async def wait_n(n: int, max_delay: int) -> list:
         max_delay (int): The maximum delay for each wait_random call.
 
     Returns:
-        List[float]: A list of the delays in ascending order.
+        list: A list of the delays in ascending order.
     """
-    delays: List[float] = []
+    delays = []
     wait_random = __import__('0-basic_async_syntax').wait_random
-
     for _ in range(n):
         delay = await wait_random(max_delay)
         inserted = False
-
         for i in range(len(delays)):
             if delay < delays[i]:
                 delays.insert(i, delay)
@@ -36,5 +33,4 @@ async def wait_n(n: int, max_delay: int) -> list:
                 break
         if not inserted:
             delays.append(delay)
-
     return delays
