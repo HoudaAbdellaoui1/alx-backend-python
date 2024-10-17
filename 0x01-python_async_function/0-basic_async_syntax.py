@@ -24,6 +24,6 @@ async def wait_random(max_delay: int = 10) -> float:
         float: The actual random delay time
         that the coroutine waited for.
     """
-    delay = random.uniform(0, max_delay)
+    delay = random.random() * max_delay
     await sleep(delay)
     return delay
