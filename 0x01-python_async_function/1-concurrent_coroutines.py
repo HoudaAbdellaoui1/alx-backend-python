@@ -11,7 +11,7 @@ from asyncio import sleep
 from typing import List
 
 
-async def wait_n(n: int, max_delay: int) -> list:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     Spawns wait_random n times with the specified max_delay.
 
