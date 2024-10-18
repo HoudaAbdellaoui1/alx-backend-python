@@ -7,7 +7,7 @@ four times concurrently using `asyncio.gather`.
 """
 
 
-import asyncio
+from asyncio import gather
 import time
 from typing import List
 
@@ -25,7 +25,7 @@ async def measure_runtime() -> float:
     generator = __import__('1-async_comprehension').async_comprehension
 
     s = time.perf_counter()
-    await asyncio.gather(generator(), generator(), generator(), generator())
+    await gather(generator(), generator(), generator(), generator())
     elapsed = time.perf_counter() - s
 
     return elapsed

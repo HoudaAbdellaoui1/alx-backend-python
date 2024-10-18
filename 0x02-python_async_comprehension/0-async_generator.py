@@ -24,9 +24,6 @@ async def async_generator() -> AsyncGenerator[float, None]:
     Yields:
         float: Random floating-point number between 1 and 10.
 
-    Example:
-        >>> async for value in async_generator():
-        >>>     print(value)
     """
     for _ in range(10):
         await asyncio.sleep(1)
