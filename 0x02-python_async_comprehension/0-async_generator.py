@@ -17,10 +17,6 @@ async def async_generator() -> AsyncGenerator[float, None]:
     Asynchronously yield random numbers between 1 and 10,
     waiting 1 second between each.
 
-
-    Returns:
-        List[float]: A list of 10 random floating-point numbers between 1 and 10.
-
     """
     for _ in range(10):
         await asyncio.sleep(1)
