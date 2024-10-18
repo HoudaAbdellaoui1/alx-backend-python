@@ -17,12 +17,9 @@ async def async_generator() -> AsyncGenerator[float, None]:
     Asynchronously yield random numbers between 1 and 10,
     waiting 1 second between each.
 
-    This function uses an asynchronous generator to yield
-    a random floating-point number
-    after waiting for 1 second. It yields a total of 10 random numbers.
 
-    Yields:
-        float: Random floating-point number between 1 and 10.
+    Returns:
+        List[float]: A list of 10 random floating-point numbers between 1 and 10.
 
     """
     for _ in range(10):
